@@ -32,7 +32,7 @@ extern "C" {
   // Don't forget string termination!
   void* ADDCALL sass_alloc_memory(size_t size)
   {
-    void* ptr = malloc(size);
+    void* ptr = calloc(size);
     if (ptr == NULL) {
       std::cerr << "Out of memory.\n";
       exit(EXIT_FAILURE);

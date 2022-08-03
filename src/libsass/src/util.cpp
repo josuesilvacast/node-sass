@@ -82,7 +82,7 @@ namespace Sass {
       return *array = (char **)NULL;
 
     for(int i = 0; i < num; i++) {
-      arr[i] = (char*) malloc(sizeof(char) * (strings[i + skip].size() + 1));
+      arr[i] = (char*) calloc(sizeof(char) * (strings[i + skip].size() + 1));
       if (arr[i] == 0) {
         free_string_array(arr);
         return *array = (char **)NULL;
