@@ -422,7 +422,7 @@ namespace Sass {
         if (dwFileLength == INVALID_FILE_SIZE) return 0;
         // allocate an extra byte for the null char
         // and another one for edge-cases in lexer
-        pBuffer = (BYTE*)calloc((dwFileLength+2)*sizeof(BYTE));
+        pBuffer = (BYTE*)calloc((dwFileLength+2)*sizeof(BYTE), sizeof(int));
         ReadFile(hFile, pBuffer, dwFileLength, &dwBytes, NULL);
         pBuffer[dwFileLength+0] = '\0';
         pBuffer[dwFileLength+1] = '\0';
@@ -438,7 +438,7 @@ namespace Sass {
           size_t size = file.tellg();
           // allocate an extra byte for the null char
           // and another one for edge-cases in lexer
-          contents = (char*) calloc((size+2)*sizeof(char));
+          contents = (char*) calloc((size+2)*sizeof(char), sizeof(int));
           file.seekg(0, std::ios::beg);
           file.read(contents, size);
           contents[size+0] = '\0';

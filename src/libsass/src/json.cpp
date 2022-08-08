@@ -54,7 +54,7 @@ extern "C" int snprintf(char *, size_t, const char *, ...);
 /* Sadly, strdup is not portable. */
 static char *json_strdup(const char *str)
 {
-  char *ret = (char*) calloc(strlen(str) + 1);
+  char *ret = (char*) calloc(strlen(str) + 1, sizeof(int));
   if (ret == NULL)
     out_of_memory();
   strcpy(ret, str);
@@ -72,7 +72,7 @@ typedef struct
 
 static void sb_init(SB *sb)
 {
-  sb->start = (char*) calloc(17);
+  sb->start = (char*) calloc(17, sizeof(int));
   if (sb->start == NULL)
     out_of_memory();
   sb->cur = sb->start;

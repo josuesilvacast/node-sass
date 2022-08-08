@@ -83,7 +83,7 @@ int ExtractOptions(v8::Local<v8::Object> options, void* cptr, sass_context_wrapp
         Nan::New("indentWidth").ToLocalChecked()
     ).ToLocalChecked()).FromJust();
 
-  ctx_w->indent = (char*)calloc(indent_len + 1);
+  ctx_w->indent = (char*)calloc(indent_len + 1, sizeof(int));
 
   strcpy(ctx_w->indent, std::string(
     indent_len,

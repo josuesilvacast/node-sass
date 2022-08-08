@@ -835,7 +835,7 @@ namespace Sass
 
 		// allocate new memory on the heap
 		// caller has to free it after use
-		char * cstr = (char*) calloc (scss.length() + 1);
+		char * cstr = (char*) calloc (scss.length() + 1, sizeof(int));
 		// create a copy of the string
 		strcpy (cstr, scss.c_str());
 		// return pointer
